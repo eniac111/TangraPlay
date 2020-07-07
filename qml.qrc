@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Resources/logo.png</file>
+        <file>Resources/play-button.svg</file>
+        <file>Resources/menu-background.png</file>
+        <file>Resources/dark_leather.png</file>
+        <file>MenuButton.qml</file>
+        <file>Resources/menubtn-background.png</file>
+        <file>AudioPlayer.qml</file>
+        <file>MediaButton.qml</file>
+        <file>Resources/pause-button.svg</file>
+    </qresource>
+</RCC>
