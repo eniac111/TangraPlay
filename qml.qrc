@@ -10,5 +10,7 @@
         <file>AudioPlayer.qml</file>
         <file>MediaButton.qml</file>
         <file>Resources/pause-button.svg</file>
+        <file>AboutProgram.qml</file>
+        <file>Resources/blago.png</file>
     </qresource>
 </RCC>

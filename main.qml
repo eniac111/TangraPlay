@@ -43,6 +43,10 @@ Window {
 
     }
 
+    AboutProgram {
+        id: aboutDialog
+    }
+
     AudioPlayer {
         id: tangraplay
     }
@@ -129,7 +133,20 @@ Window {
                     mediaControl();
                     playPause.isClicked = !playPause.isClicked;
                 }
-//                onReleased: playPause.isClicked = false;
+                //                onReleased: playPause.isClicked = false;
+            }
+        }
+
+        Text {
+            id: aboutLink
+            x: 509
+            y: 455
+            text: qsTr("Относно програмата")
+            font.pixelSize: 12
+            color: "#f9c620"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: aboutDialog.open()
             }
         }
     }
