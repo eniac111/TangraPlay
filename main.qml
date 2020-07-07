@@ -9,12 +9,13 @@ Window {
     visible: true
     width: 640
     height: 480
+    flags: Qt.FramelessWindowHint
 
-    onVisibilityChanged: {
-        if ( visibility === isMinimized ) {
-            hide()
-        }
-    }
+//    onVisibilityChanged: {
+//        if ( visibility === isMinimized ) {
+//            hide()
+//        }
+//    }
 
     SystemTrayIcon {
         visible: true
@@ -80,11 +81,6 @@ Window {
 
             }
 
-            MenuButton {
-               id: buttonExit
-               caption: "[X]"
-               onClicked: Qt.quit()
-            }
 
             MouseArea {
                 anchors.fill: parent;
@@ -108,6 +104,21 @@ Window {
                         mainWindow.y = new_y
                     }
                 }
+
+                MenuButton {
+                   id: buttonExit
+                   caption: "X"
+                   onClicked: Qt.quit()
+
+                }
+
+                MenuButton {
+                   id: buttonMinimize
+                   anchors.left: buttonExit.right
+                   caption: "_"
+                   onClicked: mainWindow.hide()
+
+                }
             }
         }
 
@@ -122,6 +133,51 @@ Window {
             source: "Resources/logo.png"
         }
 
+        Text {
+            id: element
+            x: 17
+            y: 68
+            text: qsTr("Качество:")
+            font.bold: true
+            color: "#f9c620"
+            styleColor: "#f9c620"
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 20
+        }
+
+        Rectangle {
+            id: buttonHighQuality
+            color: "#f9c620"
+            x: 17
+            y: 102
+            width: 100
+            height: 34
+            Text {
+                anchors.centerIn: parent
+                id: element1
+                text: qsTr("ВИСОКО")
+                color: "#000000"
+                font.pixelSize: 20
+                horizontalAlignment: Text.AlignHCenter
+                font.bold: true
+            }
+        }
+
+        Rectangle {
+            id: buttonLowQuality
+            color: "transparent"
+            x: 24
+            y: 146
+            width: 100
+            height: 34
+            Text {
+                text: qsTr("НИСКО")
+                color: "#f9c620"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 20
+                font.bold: true
+            }
+        }
 
         MediaButton {
             id: playPause
@@ -133,7 +189,6 @@ Window {
                     mediaControl();
                     playPause.isClicked = !playPause.isClicked;
                 }
-                //                onReleased: playPause.isClicked = false;
             }
         }
 
