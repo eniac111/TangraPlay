@@ -1,0 +1,3 @@
+[submodule "Website/tangraplay/themes/potato-dark"]
+	path = Website/tangraplay/themes/potato-dark
+	url = https://github.com/surajmandalcell/potato-dark
