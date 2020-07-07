@@ -12,5 +12,6 @@
         <file>Resources/pause-button.svg</file>
         <file>AboutProgram.qml</file>
         <file>Resources/blago.png</file>
+        <file>Resources/tangra.ico</file>
     </qresource>
 </RCC>

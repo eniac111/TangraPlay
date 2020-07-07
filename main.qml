@@ -11,15 +11,9 @@ Window {
     height: 480
     flags: Qt.FramelessWindowHint
 
-//    onVisibilityChanged: {
-//        if ( visibility === isMinimized ) {
-//            hide()
-//        }
-//    }
-
     SystemTrayIcon {
         visible: true
-        icon.source: "qrc:/images/tray-icon.png"
+        icon.source: "Resources/tangra.ico"
 
         menu: Menu {
             MenuItem {
