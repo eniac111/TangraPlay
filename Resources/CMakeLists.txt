@@ -7,5 +7,4 @@ ecm_install_icons(
         32-apps-org.petrovs_info.tangraplay.png
         16-apps-org.petrovs_info.tangraplay.png
     DESTINATION ${ICON_INSTALL_DIR}
-    THEME hicolor
 )
