@@ -21,7 +21,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
 
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
-include_directory(.)
+include_directories(.)
 
 add_subdiretory(Resources)
 
