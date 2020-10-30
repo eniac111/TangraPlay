@@ -9,7 +9,10 @@
         "--socket=x11",
         "--socket=wayland",
         "--filesystem=host",
-        "--device=dri"
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--share=network"
+
     ],
     "modules": [
         {
