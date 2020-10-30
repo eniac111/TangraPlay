@@ -11,13 +11,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_D
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
 
 
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+#include(KDEInstallDirs)
+#include(KDECMakeSettings)
+#include(KDECompilerSettings NO_POLICY_SCOPE)
 
-include(ECMInstallIcons)
-include(ECMPackageConfigHelpers)
-include(ECMOptionalAddSubdirectory)
+#include(ECMInstallIcons)
+#include(ECMPackageConfigHelpers)
+#include(ECMOptionalAddSubdirectory)
 
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
