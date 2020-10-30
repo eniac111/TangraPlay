@@ -13,7 +13,7 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick QuickControls2 Multimedia )
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick QuickControls2 Multimedia Widgets Gui )
 
 include_directories(.)
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
@@ -48,6 +48,8 @@ target_link_libraries(tangraplay
     Qt5::Quick
     Qt5::QuickControls2
     Qt5::Core
+    Qt5::Widgets
+    Qt5::Gui
     Qt5::Multimedia )
 
 install(TARGETS tangraplay DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
