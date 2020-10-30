@@ -37,7 +37,7 @@ SET(SOURCES
     fetchsnowid.cpp
     )
 
-add_executable(TangraPlay ${SOURCES})
+add_executable(tangraplay ${SOURCES})
 
 
 
@@ -47,7 +47,7 @@ target_link_libraries(tangraplay
     Qt5::Core
     Qt5::Multimedia )
 
-install(TARGETS flatpak-demo ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS tangraplay ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.petrovs_info.tangraplay.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.petrovs_info.tangraplay.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
