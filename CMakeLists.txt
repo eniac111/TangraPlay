@@ -15,7 +15,7 @@ set(CMAKE_AUTORCC ON)
 
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
-include(KDECMakeSettings))
+include(KDECMakeSettings)
 
 include(ECMOptionalAddSubdirectory)
 include(ECMAddAppIcon)
