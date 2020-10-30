@@ -1,10 +1,11 @@
 [Desktop Entry]
 Name=TangraPlay
 GenericName=TangraPlay
-Comment=TangraPlay
+Comment=Плеър за Рок Радио Тангра
 Exec=tangraplay
 Terminal=false
 Icon=org.petrovs_info.tangraplay
 Type=Application
 X-KDE-PluginInfo-Website=http://tangraplay.petrovs.info
-Categories=Multimedia
+Categories=AudioVideo;Player
+Keywords=Player;Radio;Tangra;Rock;Broadcast
