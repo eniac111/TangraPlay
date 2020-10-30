@@ -30,6 +30,7 @@ include(ECMInstallIcons)
 
 
 add_subdirectory(Resources)
+qt5_add_resources(QT_RESOURCES qml.qrc)
 
 SET(SOURCES
     main.cpp
