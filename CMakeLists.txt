@@ -20,7 +20,6 @@ include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
-#set(CMAKE_AUTORCC ON)
 
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
