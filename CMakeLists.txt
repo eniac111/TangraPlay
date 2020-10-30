@@ -15,6 +15,8 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick Multimedia )
 
+include_directories(.)
+include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 set(CMAKE_AUTORCC ON)
 
@@ -26,15 +28,11 @@ include(ECMOptionalAddSubdirectory)
 include(ECMAddAppIcon)
 include(ECMInstallIcons)
 
-include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
-
-include_directories(.)
 
 add_subdirectory(Resources)
 
 SET(SOURCES
     main.cpp
-    fetchsnowid.cpp
     )
 
 add_executable(tangraplay ${SOURCES})
@@ -42,7 +40,6 @@ add_executable(tangraplay ${SOURCES})
 
 
 target_link_libraries(tangraplay 
-    Qt5::QuickControls2
     Qt5::Quick
     Qt5::Core
     Qt5::Multimedia )
