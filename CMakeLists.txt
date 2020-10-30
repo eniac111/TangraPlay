@@ -20,7 +20,7 @@ include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+#set(CMAKE_AUTORCC ON)
 
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
@@ -32,16 +32,18 @@ include(ECMInstallIcons)
 
 
 add_subdirectory(Resources)
-qt5_add_resources(QT_RESOURCES qml.qrc)
+qt5_add_resources(RESOURCES qml.qrc)
 
 SET(SOURCES
     main.cpp
-    qml.qrc
     )
 
-add_executable(tangraplay ${SOURCES})
+add_executable(tangraplay
+    ${SOURCES}
+    ${RESOURCES}
+    )
 
-
+qt5_use_modules(tangraplay Quick QuickControls2 Core Multimedia )
 
 target_link_libraries(tangraplay 
     Qt5::Quick
