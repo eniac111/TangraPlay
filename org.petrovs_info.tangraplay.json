@@ -15,7 +15,7 @@
         {
             "name": "tangraplay",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"],
+            // "config-opts": ["-DCMAKE_BUILD_TYPE=RelWithDebInfo"],
             "sources": [
                 {
                     "type": "git",

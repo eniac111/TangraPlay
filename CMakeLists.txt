@@ -2,11 +2,16 @@ project(tangraplay)
 
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
-set(QT_MIN_VERSION "5.15.0")
+set(QT_MIN_VERSION "5.10.0")
+set(KF5_DEP_VERSION "5.40.0")
+
+# We need some parts of the ECM CMake helpers.
+find_package(ECM ${KF5_DEP_VERSION} QUIET REQUIRED NO_MODULE)
+
+# We append to the module path so modules can be overridden from the command line.
+list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
 
