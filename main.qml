@@ -22,11 +22,11 @@ Window {
                     mainWindow.show()
                     mainWindow.raise()
                     mainWindow.requestActivate()
-             }
-             MenuItem {
-                 text: qsTr("Изключване")
-                 onTriggered: Qt.quit()
-             }
+                }
+            }
+            MenuItem {
+                text: qsTr("Изключване")
+                onTriggered: Qt.quit()
             }
         }
 
