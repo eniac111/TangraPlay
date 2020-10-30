@@ -18,6 +18,8 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick QuickCo
 include_directories(.)
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
@@ -47,7 +49,7 @@ target_link_libraries(tangraplay
     Qt5::Core
     Qt5::Multimedia )
 
-install(TARGETS tangraplay ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS tangraplay DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.petrovs_info.tangraplay.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.petrovs_info.tangraplay.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
