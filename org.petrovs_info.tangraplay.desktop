@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=TangraPlay
+GenericName=TangraPlay
+Comment=TangraPlay
+Exec=tangraplay
+Terminal=false
+Icon=org.petrovs_info.tangraplay
+Type=Application
+X-KDE-PluginInfo-Website=http://tangraplay.petrovs.info
+Categories=Multimedia
