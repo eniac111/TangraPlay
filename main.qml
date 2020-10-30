@@ -17,16 +17,16 @@ Window {
 
         menu: Menu {
             MenuItem {
-                text: qsTr("Quit")
-                onTriggered: Qt.quit()
-            }
-            MenuItem {
-                text: qsTr("Show")
+                text: qsTr("Показване")
                 onTriggered: {
                     mainWindow.show()
                     mainWindow.raise()
                     mainWindow.requestActivate()
-                }
+             }
+             MenuItem {
+                 text: qsTr("Изключване")
+                 onTriggered: Qt.quit()
+             }
             }
         }
 
