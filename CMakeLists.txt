@@ -11,12 +11,15 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_D
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
 
 
-#include(KDEInstallDirs)
-include(KDECMakeSettings)
-#include(KDECompilerSettings NO_POLICY_SCOPE)
+set(CMAKE_AUTORCC ON)
 
-include(ECMInstallIcons)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+include(KDEInstallDirs)
+include(KDECMakeSettings))
+
 include(ECMOptionalAddSubdirectory)
+include(ECMAddAppIcon)
+include(ECMInstallIcons)
 
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
@@ -28,8 +31,6 @@ SET(SOURCES
     main.cpp
     fetchsnowid.cpp
     )
-
-qt5_add_resources(qml.qrc)
 
 add_executable(TangraPlay ${SOURCES})
 
