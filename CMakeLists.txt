@@ -12,18 +12,17 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
 
 
 #include(KDEInstallDirs)
-#include(KDECMakeSettings)
+include(KDECMakeSettings)
 #include(KDECompilerSettings NO_POLICY_SCOPE)
 
-#include(ECMInstallIcons)
-#include(ECMPackageConfigHelpers)
-#include(ECMOptionalAddSubdirectory)
+include(ECMInstallIcons)
+include(ECMOptionalAddSubdirectory)
 
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 include_directories(.)
 
-add_subdirectory(Resources)
+ecm_add_subdirectory(Resources)
 
 SET(SOURCES
     main.cpp
