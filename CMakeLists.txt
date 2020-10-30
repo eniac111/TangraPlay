@@ -23,7 +23,7 @@ include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 include_directories(.)
 
-add_subdiretory(Resources)
+add_subdirectory(Resources)
 
 SET(SOURCES
     main.cpp
