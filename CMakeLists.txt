@@ -1,6 +1,6 @@
 project(tangraplay)
 
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
 set(QT_MIN_VERSION "5.15.0")
 
@@ -22,7 +22,7 @@ include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 
 include_directories(.)
 
-ecm_add_subdirectory(Resources)
+add_subdirectory(Resources)
 
 SET(SOURCES
     main.cpp
