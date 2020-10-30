@@ -107,11 +107,20 @@ Window {
                 }
 
                 MenuButton {
-                   id: buttonMinimize
-                   anchors.left: buttonExit.right
-                   caption: "_"
-                   onClicked: mainWindow.hide()
+                    id: buttonMinimize
+                    anchors.left: buttonExit.right
+                    caption: "_"
+                    onClicked: mainWindow.hide()
 
+                }
+
+                Text {
+                    id: appTitle
+                    anchors.left: buttonMinimize.right
+                    text: qsTr("TangraPlay")
+                    font.pixelSize: 20
+                    font.bold: true
+                    color: "#f9c620"
                 }
             }
         }

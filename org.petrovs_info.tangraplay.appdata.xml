@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.petrovs_info.tangraplay</id>
+  <launchable type="desktop-id">org.petrovs_info.tangraplay.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.0+</project_license>
+  <name>TangraPlay</name>
+  <summary>TangraPlay</summary>
+  <description>
+    <p>Application for Radio Tangra</p>
+    <p xml:lang="en-GB">Приложение за радио Тангра</p>
+  </description>
+  <releases>
+    <release version="0.0.1" date="2020-30-21"/>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://tangraplay.petrovs.info/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <categories>
+    <category>Multimedia</category>
+  </categories>
+  <url type="homepage">https://tangraplay.petrovs.info</url>
+  <url type="bugtracker">https://code.petrovs.info/blago/TangraPlay/issues</url>
+  <project_group>petrovs_info</project_group>
+  <update_contact>blagovest_AT_petrovs.info</update_contact>
+  <provides>
+    <binary>tangraplay</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>
