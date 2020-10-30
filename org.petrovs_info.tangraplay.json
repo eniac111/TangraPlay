@@ -1,7 +1,7 @@
 {
     "app-id": "org.petrovs_info.tangraplay",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.11",
+    "runtime-version": "5.12",
     "sdk": "org.kde.Sdk",
     "command": "tangraplay",
     "finish-args": [
@@ -19,7 +19,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "http://code.petrovs.info/blago/TangraPlay.git"
+                    "url": "https://code.petrovs.info/blago/TangraPlay.git"
                 }
             ]
         }
