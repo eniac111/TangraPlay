@@ -13,7 +13,7 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick )
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick Multimedia )
 
 
 set(CMAKE_AUTORCC ON)
@@ -41,9 +41,11 @@ add_executable(TangraPlay ${SOURCES})
 
 
 
-set_target_properties(tangraplay PROPERTIES INSTALL_RPATH ${CMAKE_INSTALL_FULL_LIBDIR}/tangraplay)
-
-target_link_libraries(tangraplay LINK_PUBLIC Qt5::QuickControls2 Qt5::Quick Qt5::Core )
+target_link_libraries(tangraplay 
+    Qt5::QuickControls2
+    Qt5::Quick
+    Qt5::Core
+    Qt5::Multimedia )
 
 install(TARGETS flatpak-demo ${INSTALL_TARGETS_DEFAULT_ARGS})
 
