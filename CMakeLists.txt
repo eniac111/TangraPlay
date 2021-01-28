@@ -2,6 +2,8 @@ project(tangraplay)
 
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
+set(BIN_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 set(QT_MIN_VERSION "5.10.0")
 set(KF5_DEP_VERSION "5.40.0")
 
