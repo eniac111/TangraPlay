@@ -20,7 +20,7 @@ install:
     & cmd /C "git clone -q --depth=1 git://anongit.kde.org/craftmaster.git C:\CraftMaster\CraftMaster 2>&1"
 
     craft $env:TARGET -i craft
-    craft $env:TARGET --install-deps owncloud-client
+    craft $env:TARGET --install-deps tangraplay
 
 build_script:
 - ps: |
@@ -37,7 +37,7 @@ on_finish:
 
 test_script:
 - ps: |
-   craft $env:TARGET --src-dir $env:APPVEYOR_BUILD_FOLDER --test owncloud-client
+   craft $env:TARGET --src-dir $env:APPVEYOR_BUILD_FOLDER --test tangraplay
 
 environment:
     matrix:
