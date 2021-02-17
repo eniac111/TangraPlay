@@ -11,6 +11,8 @@ Window {
     height: 480
     flags: Qt.FramelessWindowHint
 
+    FontLoader { id: mainfont; source: "Resources/KellySlab-Regular.ttf" }
+
     SystemTrayIcon {
         visible: true
         icon.source: "Resources/tangra.ico"
@@ -118,6 +120,7 @@ Window {
                     id: appTitle
                     anchors.left: buttonMinimize.right
                     text: qsTr("TangraPlay")
+                    font.family: mainfont.name
                     font.pixelSize: 20
                     font.bold: true
                     color: "#f9c620"
@@ -134,53 +137,62 @@ Window {
             height: 175
             fillMode: Image.PreserveAspectFit
             source: "Resources/logo.png"
-        }
-
-        Text {
-            id: element
-            x: 17
-            y: 68
-            text: qsTr("Качество:")
-            font.bold: true
-            color: "#f9c620"
-            styleColor: "#f9c620"
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 20
-        }
-
-        Rectangle {
-            id: buttonHighQuality
-            color: "#f9c620"
-            x: 17
-            y: 102
-            width: 100
-            height: 34
-            Text {
-                anchors.centerIn: parent
-                id: element1
-                text: qsTr("ВИСОКО")
-                color: "#000000"
-                font.pixelSize: 20
-                horizontalAlignment: Text.AlignHCenter
-                font.bold: true
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onPressed:  {
+                    Qt.openUrlExternally("http://radiotangra.com")
+                }
             }
         }
 
-        Rectangle {
-            id: buttonLowQuality
-            color: "transparent"
-            x: 24
-            y: 146
-            width: 100
-            height: 34
-            Text {
-                text: qsTr("НИСКО")
-                color: "#f9c620"
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: 20
-                font.bold: true
-            }
-        }
+
+
+//        Text {
+//            id: element
+//            x: 17
+//            y: 68
+//            text: qsTr("Качество:")
+//            font.bold: true
+//            color: "#f9c620"
+//            styleColor: "#f9c620"
+//            horizontalAlignment: Text.AlignHCenter
+//            font.pixelSize: 20
+//        }
+
+//        Rectangle {
+//            id: buttonHighQuality
+//            color: "#f9c620"
+//            x: 17
+//            y: 102
+//            width: 100
+//            height: 34
+//            Text {
+//                anchors.centerIn: parent
+//                id: element1
+//                text: qsTr("ВИСОКО")
+//                color: "#000000"
+//                font.pixelSize: 20
+//                horizontalAlignment: Text.AlignHCenter
+//                font.bold: true
+//            }
+//        }
+
+//        Rectangle {
+//            id: buttonLowQuality
+//            color: "transparent"
+//            x: 24
+//            y: 146
+//            width: 100
+//            height: 34
+//            Text {
+//                text: qsTr("НИСКО")
+//                color: "#f9c620"
+//                horizontalAlignment: Text.AlignHCenter
+//                font.pixelSize: 20
+//                font.bold: true
+//            }
+//        }
 
         MediaButton {
             id: playPause
@@ -201,6 +213,7 @@ Window {
             y: 455
             text: qsTr("Относно програмата")
             font.pixelSize: 12
+            font.family: mainfont.name
             color: "#f9c620"
             MouseArea {
                 anchors.fill: parent

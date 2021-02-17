@@ -13,5 +13,6 @@
         <file>AboutProgram.qml</file>
         <file>Resources/blago.png</file>
         <file>Resources/tangra.ico</file>
+        <file>Resources/KellySlab-Regular.ttf</file>
     </qresource>
 </RCC>

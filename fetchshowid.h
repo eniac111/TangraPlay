@@ -6,7 +6,7 @@ class FetchShowID
 {
 public:
     FetchShowID();
-//    int FetchShowID::Fetch();
+//    int Fetch();
 };
 
 #endif // FETCHSHOWID_H
