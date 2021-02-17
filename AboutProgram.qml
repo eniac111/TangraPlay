@@ -21,7 +21,7 @@ Dialog {
         id: element
         x: 0
         y: 8
-        text: qsTr("TangraPlay v0.1 Alpha")
+        text: qsTr("TangraPlay v0.5 Beta")
         font.bold: true
         font.pixelSize: 33
     }
@@ -33,6 +33,7 @@ Dialog {
         width: 216
         height: 61
         text: qsTr("(Винаги съм искал да направя софтуер с диалогов прозорец като mIRC )")
+        font.family: mainfont.name
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         elide: Text.ElideLeft
         font.pixelSize: 12
@@ -45,6 +46,7 @@ Dialog {
         width: 354
         height: 36
         text: qsTr("© 2020 Благовест Петров ( https://petrovs.info ) . Кодът е лиценциран под GNU GPV v3.0. ")
+        font.family: mainfont.name
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         font.pixelSize: 12
     }
@@ -56,6 +58,7 @@ Dialog {
         width: 354
         height: 36
         text: qsTr("Всички лога, графики и името \"Tangra Mega Rock\" са собственост на радио Тангра.")
+        font.family: mainfont.name
         font.pixelSize: 12
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
@@ -67,6 +70,7 @@ Dialog {
         width: 354
         height: 36
         text: qsTr("Този софтуер e направен напълно с некомерсиална цел не е свързан по никакъв начин с Рок Радио Tangra Mega Rock")
+        font.family: mainfont.name
         font.pixelSize: 12
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }

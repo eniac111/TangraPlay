@@ -11,6 +11,8 @@ Window {
     height: 480
     flags: Qt.FramelessWindowHint
 
+    FontLoader { id: mainfont; source: "Resources/KellySlab-Regular.ttf" }
+
     SystemTrayIcon {
         visible: true
         icon.source: "Resources/tangra.ico"
@@ -118,6 +120,7 @@ Window {
                     id: appTitle
                     anchors.left: buttonMinimize.right
                     text: qsTr("TangraPlay")
+                    font.family: mainfont.name
                     font.pixelSize: 20
                     font.bold: true
                     color: "#f9c620"
@@ -201,6 +204,7 @@ Window {
             y: 455
             text: qsTr("Относно програмата")
             font.pixelSize: 12
+            font.family: mainfont.name
             color: "#f9c620"
             MouseArea {
                 anchors.fill: parent
