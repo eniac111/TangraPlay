@@ -137,7 +137,16 @@ Window {
             height: 175
             fillMode: Image.PreserveAspectFit
             source: "Resources/logo.png"
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onPressed:  {
+                    Qt.openUrlExternally("http://radiotangra.com")
+                }
+            }
         }
+
+
 
 //        Text {
 //            id: element
