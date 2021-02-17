@@ -2,6 +2,7 @@ QT += quick gui core widgets
 
 CONFIG += c++11
 
+RC_ICONS = Resources/tangra.ico
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
