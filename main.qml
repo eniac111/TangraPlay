@@ -72,6 +72,10 @@ Window {
         PgLive {
             id: pgLive1
         }
+        PgNews {
+            id: pgnews1
+            visible: false
+        }
 
     }
 }

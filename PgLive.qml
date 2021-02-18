@@ -24,58 +24,12 @@ Item {
         }
     }
 
-
-
-//        Text {
-//            id: element
-//            x: 17
-//            y: 68
-//            text: qsTr("Качество:")
-//            font.bold: true
-//            color: "#f9c620"
-//            styleColor: "#f9c620"
-//            horizontalAlignment: Text.AlignHCenter
-//            font.pixelSize: 20
-//        }
-
-//        Rectangle {
-//            id: buttonHighQuality
-//            color: "#f9c620"
-//            x: 17
-//            y: 102
-//            width: 100
-//            height: 34
-//            Text {
-//                anchors.centerIn: parent
-//                id: element1
-//                text: qsTr("ВИСОКО")
-//                color: "#000000"
-//                font.pixelSize: 20
-//                horizontalAlignment: Text.AlignHCenter
-//                font.bold: true
-//            }
-//        }
-
-//        Rectangle {
-//            id: buttonLowQuality
-//            color: "transparent"
-//            x: 24
-//            y: 146
-//            width: 100
-//            height: 34
-//            Text {
-//                text: qsTr("НИСКО")
-//                color: "#f9c620"
-//                horizontalAlignment: Text.AlignHCenter
-//                font.pixelSize: 20
-//                font.bold: true
-//            }
-//        }
-
     MediaButton {
         id: playPause
-        width: 359
-        height: 85
+        x: 35
+        y: 291
+        width: 64
+        height: 64
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -98,4 +52,40 @@ Item {
             onClicked: aboutDialog.open()
         }
     }
+
+    Image {
+        id: playbtnframe
+        x: 0
+        y: 259
+        width: 629
+        height: 127
+        source: "Resources/playbtn-frame.png"
+        fillMode: Image.PreserveAspectFit
+
+        Text {
+            id: text1
+            x: 156
+            y: 17
+            text: qsTr("Предаване в ефир:")
+            color: "#f9c620"
+            font.family: mainfont.name
+            font.pixelSize: 15
+        }
+
+        Text {
+            id: text2
+            x: 156
+            y: 60
+            text: qsTr("В момента звучи:")
+            color: "#f9c620"
+            font.family: mainfont.name
+            font.pixelSize: 15
+        }
+    }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/
