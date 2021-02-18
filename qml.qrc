@@ -15,5 +15,6 @@
         <file>Resources/tangra.ico</file>
         <file>Resources/KellySlab-Regular.ttf</file>
         <file>PgLive.qml</file>
+        <file>MenuToolbar.qml</file>
     </qresource>
 </RCC>
