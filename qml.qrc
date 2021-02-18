@@ -14,5 +14,6 @@
         <file>Resources/blago.png</file>
         <file>Resources/tangra.ico</file>
         <file>Resources/KellySlab-Regular.ttf</file>
+        <file>PgLive.qml</file>
     </qresource>
 </RCC>
