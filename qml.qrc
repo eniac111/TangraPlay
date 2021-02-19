@@ -14,5 +14,15 @@
         <file>Resources/blago.png</file>
         <file>Resources/tangra.ico</file>
         <file>Resources/KellySlab-Regular.ttf</file>
+        <file>PgLive.qml</file>
+        <file>MenuToolbar.qml</file>
+        <file>PgNews.qml</file>
+        <file>Resources/news-icon.png</file>
+        <file>Resources/buuf-pause.png</file>
+        <file>Resources/buuf-play.png</file>
+        <file>Resources/playbtn-frame.png</file>
+        <file>Resources/live.png</file>
+        <file>Resources/news.png</file>
+        <file>Resources/podcast.png</file>
     </qresource>
 </RCC>
