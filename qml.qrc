@@ -21,5 +21,8 @@
         <file>Resources/buuf-pause.png</file>
         <file>Resources/buuf-play.png</file>
         <file>Resources/playbtn-frame.png</file>
+        <file>Resources/live.png</file>
+        <file>Resources/news.png</file>
+        <file>Resources/podcast.png</file>
     </qresource>
 </RCC>

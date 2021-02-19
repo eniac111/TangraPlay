@@ -4,6 +4,8 @@ import Qt.labs.platform 1.1
 import QtMultimedia 5.15
 
 Item {
+    x: 190
+    y: 51
     Row {
         id: row
         x: 8

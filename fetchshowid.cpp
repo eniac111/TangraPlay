@@ -1,15 +1,15 @@
 #include "fetchshowid.h"
-#include <QNetworkAccessManager>
-#include <QObject>
-#include <QDebug>
-#include <QString>
 
 FetchShowID::FetchShowID()
 {
+    n_manager = new QNetworkAccessManager;
+
+    connect(n_manager, SIGNAL(finished(QNetworkReply*)),
+             this, SLOT(replyFinished(QNetworkReply*)));
 
 }
 
-//int FetchShowID::Fetch() {
-//    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
-//}
+void FetchShowID::Fetch() {
+    n_manager->get(QNetworkRequest(QUrl("http://app.radiotangra.com/TMR_monitor_songs")));
+}

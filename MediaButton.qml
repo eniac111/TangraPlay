@@ -3,13 +3,9 @@ import QtQuick.Controls 2.15
 
 Item {
     id: container
-//    x: 141
-//    y: 367
     x: 64
     y: 64
     property bool isClicked : false
-//    color: isClicked ? "#a98415" : "#f9c620"
-
 
     Image {
         id: buttonIcon

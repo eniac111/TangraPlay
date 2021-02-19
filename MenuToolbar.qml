@@ -63,24 +63,24 @@ Item {
                 color: "#f9c620"
             }
 
-            Text {
-                id: buttonLive
-                y: 2
-                anchors.left: appTitle.left
-                text: qsTr("На ЖИВО")
-                font.family: mainfont.name
-                font.pixelSize: 21
-                anchors.leftMargin: 128
-                color: "#efbb1f"
+//            Image {
+//                id: buttonLive
+//                source: "Resources/live.png"
+//                anchors.left: appTitle.left
+//                anchors.leftMargin: 128
+//                width: 32
+//                height: 32
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        pgLive1.visible = false;
-                        pgnews1.visible = true;
-                    }
-                }
-            }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    hoverEnabled: true
+//                    onClicked: {
+//                        pgLive1.visible = false;
+//                        pgnews1.visible = true;
+////                        contentLoader.sourceComponent = PgNews
+//                    }
+//                }
+//            }
         }
     }
 }

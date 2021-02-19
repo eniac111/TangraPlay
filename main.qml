@@ -72,10 +72,19 @@ Window {
         PgLive {
             id: pgLive1
         }
-        PgNews {
-            id: pgnews1
-            visible: false
-        }
+//        PgNews {
+//            id: pgNews1
+//            visible: false
+//        }
+
+//        Item {
+//            Component {
+//                id: myComp
+//            }
+
+//            Loader { id: contentLoader }
+
+//        }
 
     }
 }
