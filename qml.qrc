@@ -1,22 +1,22 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>ui/main.qml</file>
+        <file>ui/MenuToolbar.qml</file>
+        <file>ui/MenuButton.qml</file>
+        <file>ui/PgLive.qml</file>
+        <file>ui/PgNews.qml</file>
+        <file>ui/AboutProgram.qml</file>
+        <file>ui/AudioPlayer.qml</file>
+        <file>ui/MediaButton.qml</file>
+        <file>Resources/pause-button.svg</file>
         <file>Resources/logo.png</file>
         <file>Resources/play-button.svg</file>
         <file>Resources/menu-background.png</file>
         <file>Resources/dark_leather.png</file>
-        <file>MenuButton.qml</file>
         <file>Resources/menubtn-background.png</file>
-        <file>AudioPlayer.qml</file>
-        <file>MediaButton.qml</file>
-        <file>Resources/pause-button.svg</file>
-        <file>AboutProgram.qml</file>
         <file>Resources/blago.png</file>
         <file>Resources/tangra.ico</file>
         <file>Resources/KellySlab-Regular.ttf</file>
-        <file>PgLive.qml</file>
-        <file>MenuToolbar.qml</file>
-        <file>PgNews.qml</file>
         <file>Resources/news-icon.png</file>
         <file>Resources/buuf-pause.png</file>
         <file>Resources/buuf-play.png</file>
