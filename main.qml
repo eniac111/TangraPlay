@@ -15,31 +15,18 @@ Window {
 
     FontLoader { id: mainfont; source: "Resources/KellySlab-Regular.ttf" }
 
-    SystemTrayIcon {
-        visible: true
-        icon.source: "Resources/tangra.ico"
+    Connections {
+        target: tangraTray
 
-        menu: Menu {
-            MenuItem {
-                text: qsTr("Показване")
-                onTriggered: {
-                    mainWindow.show()
-                    mainWindow.raise()
-                    mainWindow.requestActivate()
-                }
-            }
-            MenuItem {
-                text: qsTr("Изключване")
-                onTriggered: Qt.quit()
-            }
-        }
-
-        onActivated: {
+        function onSignalIconActivated() {
             mainWindow.show()
             mainWindow.raise()
             mainWindow.requestActivate()
         }
 
+        function onSignalQuit(){
+            Qt.quit()
+        }
     }
 
     AboutProgram {
