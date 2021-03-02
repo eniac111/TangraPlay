@@ -8,7 +8,7 @@ Item {
         height: 32
 
         Image {
-            source: "Resources/menu-background.png"
+            source: "../Resources/menu-background.png"
             fillMode: Image.Tile
             anchors.fill: parent
 

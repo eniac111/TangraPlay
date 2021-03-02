@@ -12,7 +12,7 @@ Item {
         width: 64
         anchors.centerIn: parent
         fillMode: Image.PreserveAspectFit
-        source: isClicked ? "Resources/buuf-pause.png" : "Resources/buuf-play.png"
+        source: isClicked ? "../Resources/buuf-pause.png" : "../Resources/buuf-play.png"
 
     }
 }

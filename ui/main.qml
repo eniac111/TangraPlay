@@ -13,7 +13,7 @@ Window {
     maximumHeight: 480
     flags: Qt.FramelessWindowHint
 
-    FontLoader { id: mainfont; source: "Resources/KellySlab-Regular.ttf" }
+    FontLoader { id: mainfont; source: "../Resources/KellySlab-Regular.ttf" }
 
     Connections {
         target: tangraTray
@@ -52,7 +52,7 @@ Window {
         anchors.fill: parent
         visible: true
         fillMode: Image.Tile
-        source: "Resources/dark_leather.png"
+        source: "../Resources/dark_leather.png"
 
         MenuToolbar {}
 

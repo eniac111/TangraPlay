@@ -14,7 +14,7 @@ Dialog {
         width: 100
         height: 100
         fillMode: Image.PreserveAspectFit
-        source: "Resources/blago.png"
+        source: "../Resources/blago.png"
     }
 
     Text {
