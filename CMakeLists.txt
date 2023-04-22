@@ -46,8 +46,9 @@ qt_add_executable(apptangraplay
 )
 
 qt_add_qml_module(apptangraplay
-    URI tangraplay
+    URI TangraPlay
     VERSION 1.0
+    RESOURCE_PREFIX /bpetrov.tangraplay/imports
     QML_FILES ui/main.qml
               ui/AboutProgram.qml
               ui/AudioPlayer.qml

@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import Qt.labs.platform 1.1
 import QtMultimedia 5.15
+//import TangraPlay
 
 Window {
     title: qsTr("Tangra Mega Rock")
@@ -13,7 +14,8 @@ Window {
     maximumHeight: 480
     flags: Qt.FramelessWindowHint
 
-    FontLoader { id: mainfont; source: "../Resources/KellySlab-Regular.ttf" }
+//    FontLoader { id: mainfont; source: "../Resources/KellySlab-Regular.ttf" }
+    FontLoader { id: mainfont; source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/KellySlab-Regular.ttf" }
 
     Connections {
         target: tangraTray
@@ -34,15 +36,15 @@ Window {
     }
 
     AudioPlayer {
-        id: tangraplay
+        id: thePlayer
     }
 
     function mediaControl() {
-        if (tangraplay.playbackState != Audio.PlayingState) {
-            tangraplay.play();
+        if (thePlayer.playbackState != thePlayer.PlayingState) {
+            thePlayer.play();
         }
         else {
-            tangraplay.stop();
+            thePlayer.stop();
         }
         return 0;
     }
@@ -52,7 +54,7 @@ Window {
         anchors.fill: parent
         visible: true
         fillMode: Image.Tile
-        source: "../Resources/dark_leather.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/dark_leather.png"
 
         MenuToolbar {}
 

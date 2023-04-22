@@ -8,7 +8,7 @@ Item {
         height: 32
 
         Image {
-            source: "../Resources/menu-background.png"
+            source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/menu-background.png"
             fillMode: Image.Tile
             anchors.fill: parent
 
@@ -17,7 +17,7 @@ Item {
 
         MouseArea {
             anchors.fill: parent;
-            property variant clickPos: "1,1"
+            property string clickPos: "1,1"
 
             onPressed: {
                 clickPos = Qt.point(mouse.x,mouse.y)
@@ -63,24 +63,24 @@ Item {
                 color: "#f9c620"
             }
 
-//            Image {
-//                id: buttonLive
-//                source: "Resources/live.png"
-//                anchors.left: appTitle.left
-//                anchors.leftMargin: 128
-//                width: 32
-//                height: 32
+            Image {
+                id: buttonLive
+                source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/live.png"
+                anchors.left: appTitle.left
+                anchors.leftMargin: 128
+                width: 32
+                height: 32
 
-//                MouseArea {
-//                    anchors.fill: parent
-//                    hoverEnabled: true
-//                    onClicked: {
-//                        pgLive1.visible = false;
-//                        pgnews1.visible = true;
-////                        contentLoader.sourceComponent = PgNews
-//                    }
-//                }
-//            }
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        pgLive1.visible = false;
+                        pgnews1.visible = true;
+//                        contentLoader.sourceComponent = PgNews
+                    }
+                }
+            }
         }
     }
 }

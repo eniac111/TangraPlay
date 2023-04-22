@@ -14,7 +14,7 @@ Item {
         width: 260
         height: 175
         fillMode: Image.PreserveAspectFit
-        source: "../Resources/logo.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/logo.png"
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
@@ -59,7 +59,7 @@ Item {
         y: 259
         width: 629
         height: 127
-        source: "../Resources/playbtn-frame.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/playbtn-frame.png"
         fillMode: Image.PreserveAspectFit
 
         Text {
