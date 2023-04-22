@@ -55,6 +55,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
+                playPause.runAnimation()
                 mediaControl()
                 playPause.isClicked = !playPause.isClicked
             }

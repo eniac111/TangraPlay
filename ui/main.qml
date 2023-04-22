@@ -41,7 +41,7 @@ ApplicationWindow {
     }
 
     function mediaControl() {
-        if (thePlayer.playbackState != thePlayer.PlayingState) {
+        if (thePlayer.playbackState != MediaPlayer.PlayingState) {
             thePlayer.play();
         }
         else {
@@ -73,20 +73,6 @@ ApplicationWindow {
             id: stackNews
             PgNews { id: pgNews }
         }
-
-//        PgNews {
-//            id: pgNews1
-//            visible: false
-//        }
-
-//        Item {
-//            Component {
-//                id: myComp
-//            }
-
-//            Loader { id: contentLoader }
-
-//        }
 
     }
 }
