@@ -1,10 +1,10 @@
 import QtQuick 2.12
-import QtQuick.Window 2.12
+import QtQuick.Controls
+import QtQuick.Layouts
 import Qt.labs.platform 1.1
-import QtMultimedia 5.15
-//import TangraPlay
+import QtMultimedia
 
-Window {
+ApplicationWindow {
     title: qsTr("Tangra Mega Rock")
     id: mainWindow
     visible: true
@@ -14,8 +14,9 @@ Window {
     maximumHeight: 480
     flags: Qt.FramelessWindowHint
 
-//    FontLoader { id: mainfont; source: "../Resources/KellySlab-Regular.ttf" }
     FontLoader { id: mainfont; source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/KellySlab-Regular.ttf" }
+
+    header: MenuToolbar {}
 
     Connections {
         target: tangraTray
@@ -56,11 +57,23 @@ Window {
         fillMode: Image.Tile
         source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/dark_leather.png"
 
-        MenuToolbar {}
 
-        PgLive {
-            id: pgLive1
+
+        StackView {
+            id: mainStack
+            initialItem: stackLive
+            anchors.fill: parent
         }
+
+        Component {
+            id: stackLive
+            PgLive { id: pgLive }
+        }
+        Component {
+            id: stackNews
+            PgNews { id: pgNews }
+        }
+
 //        PgNews {
 //            id: pgNews1
 //            visible: false

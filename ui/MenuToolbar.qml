@@ -17,13 +17,13 @@ Item {
 
         MouseArea {
             anchors.fill: parent;
-            property string clickPos: "1,1"
+            property variant clickPos: "1,1"
 
-            onPressed: {
-                clickPos = Qt.point(mouse.x,mouse.y)
+            onPressed: (mouse)=> {
+                clickPos = Qt.point(mouse.x, mouse.y)
             }
 
-            onPositionChanged: {
+            onPositionChanged: (mouse)=> {
                 var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
                 var new_x = mainWindow.x + delta.x
                 var new_y = mainWindow.y + delta.y
@@ -75,9 +75,23 @@ Item {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        pgLive1.visible = false;
-                        pgnews1.visible = true;
-//                        contentLoader.sourceComponent = PgNews
+                        mainStack.push(stackLive)
+                    }
+                }
+            }
+            Image {
+                id: buttonNews
+                source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/news.png"
+                anchors.left: buttonLive.left
+                anchors.leftMargin: 128
+                width: 32
+                height: 32
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        mainStack.push(stackNews)
                     }
                 }
             }

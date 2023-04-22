@@ -1,38 +1,35 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
-import Qt.labs.platform 1.1
-import QtMultimedia 5.15
+import QtQuick
+import QtQuick.Controls
+import QtQml.XmlListModel
 
 Item {
     x: 190
     y: 51
-    Row {
-        id: row
-        x: 8
-        y: 50
-        width: 624
-        height: 400
-        spacing: 2
 
-        Text {
-            id: text1
-            x: 61
-            y: 50
-            text: qsTr("Гледайте първо видео от новия албум на GOJIRA - той излиза на 3 април")
-            font.pixelSize: 12
-            font.family: mainfont.name
-        }
 
-        Text {
-            id: text2
-            x: 61
-            y: 50
-            text: qsTr("Историята на BLONDIE в предаването 'РОКЕНДРОЛ' на МОНИ ПАНЧЕВ от 16:00")
-            font.pixelSize: 12
-            font.family: mainfont.name
-        }
+
+    XmlListModel {
+        id: newsModel
+
+        source: "http://www.radiotangra.com/news/rss.html"
+        query: "/rss/channel/item"
+
+        XmlListModelRole { name: "title"; elementName: "title"; attributeName: ""}
+        XmlListModelRole { name: "link"; elementName: "link"; attributeName: "" }
     }
 
-
+    ListView {
+        id: newsList
+        anchors.fill: parent
+        anchors.topMargin: 38
+        anchors.leftMargin: 39
+        anchors.rightMargin: 27
+        anchors.bottomMargin: 17
+        model: newsModel
+        delegate: NewsDelegate {}
+        ScrollBar.vertical: ScrollBar {
+            policy: ScrollBar.AlwaysOn
+        }
+    }
 
 }

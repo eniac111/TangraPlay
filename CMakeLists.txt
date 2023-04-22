@@ -57,6 +57,7 @@ qt_add_qml_module(apptangraplay
               ui/MenuToolbar.qml
               ui/PgLive.qml
               ui/PgNews.qml
+              ui/NewsDelegate.qml
     RESOURCES
               ${QML_ASSETS}
 )
