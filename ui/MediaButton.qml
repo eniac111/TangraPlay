@@ -35,8 +35,8 @@ Image {
         id: glow
         visible: false
 
-        width: 250
-        height: 250
+        width: parent.width
+        height: parent.height
         color: "#00000000"
         radius: 125
         scale: 1.05
