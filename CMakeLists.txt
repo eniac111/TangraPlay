@@ -1,21 +1,19 @@
-project(tangraplay)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+project(tangraplay VERSION 0.1 LANGUAGES CXX)
 
-set(BIN_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
+#set(BIN_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets Core QuickControls2 Widgets Gui Multimedia)
 
 set(QT_MIN_VERSION "5.10.0")
 set(KF5_DEP_VERSION "5.40.0")
 
-# We need some parts of the ECM CMake helpers.
-find_package(ECM ${KF5_DEP_VERSION} QUIET REQUIRED NO_MODULE)
-
-# We append to the module path so modules can be overridden from the command line.
-list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
-
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
-
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Quick QuickControls2 Multimedia Widgets Gui )
 
 include_directories(.)
 include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
@@ -23,38 +21,61 @@ include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
-include(KDEInstallDirs)
-include(KDECMakeSettings)
+list(APPEND QML_ASSETS
+    Assets/pause-button.svg
+    Assets/logo.png
+    Assets/play-button.svg
+    Assets/menu-background.png
+    Assets/dark_leather.png
+    Assets/menubtn-background.png
+    Assets/blago.png
+    Assets/tangra.ico
+    Assets/KellySlab-Regular.ttf
+    Assets/news-icon.png
+    Assets/buuf-pause.png
+    Assets/buuf-play.png
+    Assets/playbtn-frame.png
+    Assets/live.png
+    Assets/news.png
+    Assets/podcast.png
+)
 
-include(ECMOptionalAddSubdirectory)
-include(ECMAddAppIcon)
-include(ECMInstallIcons)
-
-
-add_subdirectory(Resources)
-qt5_add_resources(RESOURCES qml.qrc)
-
-SET(SOURCES
+qt_add_executable(apptangraplay
     main.cpp
-    )
+    tangratray.h tangratray.cpp
+)
 
-add_executable(tangraplay
-    ${SOURCES}
-    ${RESOURCES}
-    )
+qt_add_qml_module(apptangraplay
+    URI tangraplay
+    VERSION 1.0
+    QML_FILES ui/main.qml
+              ui/AboutProgram.qml
+              ui/AudioPlayer.qml
+              ui/MediaButton.qml
+              ui/MenuButton.qml
+              ui/MenuToolbar.qml
+              ui/PgLive.qml
+              ui/PgNews.qml
+    RESOURCES
+              ${QML_ASSETS}
+)
 
-qt5_use_modules(tangraplay Quick QuickControls2 Core Multimedia )
+set_target_properties(apptangraplay PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER tangraplay.petrovs.info
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
 
-target_link_libraries(tangraplay 
-    Qt5::Quick
-    Qt5::QuickControls2
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Gui
-    Qt5::Multimedia )
+target_link_libraries(apptangraplay PRIVATE
+    Qt6::Quick
+    Qt6::QuickControls2
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Gui
+    Qt6::Multimedia )
 
-install(TARGETS tangraplay DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-install(PROGRAMS org.petrovs_info.tangraplay.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES org.petrovs_info.tangraplay.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(TARGETS apptangraplay
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

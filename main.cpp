@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("tangraTray", tangratray);
 
-    const QUrl url(QStringLiteral("qrc:/ui/main.qml"));
+    const QUrl url(u"qrc:/tangraplay/qml/main.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
