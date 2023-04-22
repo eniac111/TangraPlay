@@ -5,7 +5,6 @@ import QtMultimedia 5.15
 
 Item {
 
-
     Image {
         id: logo
         x: 190
@@ -15,11 +14,34 @@ Item {
         height: 175
         fillMode: Image.PreserveAspectFit
         source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/logo.png"
+
+        states: ["mouseFadeIn", "MouseFadeOut"]
+        state: "mouseFadeOut"
+
+        transitions: [
+            Transition {
+                from: "*"
+                to: "mouseFadeIn"
+                NumberAnimation {
+                    target: logo
+                    properties: "scale"
+                    from: 0.95
+                    to: 1
+                    duration: 400
+                    easing.type: Easing.OutBounce
+                }
+            }
+        ]
+
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onPressed:  {
+            hoverEnabled: true
+            onPressed: {
                 Qt.openUrlExternally("http://radiotangra.com")
+            }
+            onContainsMouseChanged: {
+                logo.state = containsMouse ? "mouseFadeIn" : "mouseFadeOut"
             }
         }
     }
@@ -33,8 +55,8 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                mediaControl();
-                playPause.isClicked = !playPause.isClicked;
+                mediaControl()
+                playPause.isClicked = !playPause.isClicked
             }
         }
     }
@@ -89,3 +111,4 @@ Designer {
     D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/
+
