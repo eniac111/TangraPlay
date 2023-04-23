@@ -90,20 +90,10 @@ Item {
         fillMode: Image.PreserveAspectFit
 
         Text {
-            id: text1
-            x: 156
-            y: 17
-            text: qsTr("Предаване в ефир: ") + currentShow.theShow
-            color: "#f9c620"
-            font.family: mainfont.name
-            font.pixelSize: 15
-        }
-
-        Text {
             id: text2
             x: 156
             y: 60
-            text: qsTr("В момента звучи: Unknown")
+            text: qsTr("Предаване в ефир: ") + currentShow.theShow
             color: "#f9c620"
             font.family: mainfont.name
             font.pixelSize: 15
