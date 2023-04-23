@@ -5,6 +5,8 @@ import QtMultimedia 5.15
 
 Item {
 
+//    property alias playPauseChangeState: playPause.changeIconState()
+
     Image {
         id: logo
         x: 190
@@ -57,9 +59,11 @@ Item {
             onClicked: {
                 playPause.runAnimation()
                 mediaControl()
-                playPause.isClicked = !playPause.isClicked
+//                playPause.isClicked = !playPause.isClicked
+                playPause.changeIconState()
             }
         }
+
     }
 
     Text {
@@ -89,7 +93,7 @@ Item {
             id: text1
             x: 156
             y: 17
-            text: qsTr("Предаване в ефир:")
+            text: qsTr("Предаване в ефир: ") + currentShow.theShow
             color: "#f9c620"
             font.family: mainfont.name
             font.pixelSize: 15
@@ -99,7 +103,7 @@ Item {
             id: text2
             x: 156
             y: 60
-            text: qsTr("В момента звучи:")
+            text: qsTr("В момента звучи: Unknown")
             color: "#f9c620"
             font.family: mainfont.name
             font.pixelSize: 15

@@ -16,7 +16,7 @@ TangraTray::TangraTray(QObject *parent) : QObject(parent)
 
     trayIcon = new QSystemTrayIcon();
     trayIcon->setContextMenu(trayIconMenu);
-    setTrayIcon(":Resources/tangra.ico");
+    setTrayIcon(":/bpetrov.tangraplay/imports/tangra.ico");
 
     trayIcon->show();
 
@@ -37,8 +37,9 @@ void TangraTray::iconActivated(QSystemTrayIcon::ActivationReason reason)
 
 void TangraTray::setTrayIcon(QString image)
 {
-    QIcon icon = QIcon(image), tr("Icon");
+    QIcon icon = QIcon(image);
     trayIcon->setIcon(icon);
+    trayIcon->show();
 }
 
 void TangraTray::hideIconTray()

@@ -40,6 +40,13 @@ ApplicationWindow {
         id: thePlayer
     }
 
+    CurrentShow {
+        id: currentShow
+        Component.onCompleted: {
+            currentShow.getShow();
+        }
+    }
+
     function mediaControl() {
         if (thePlayer.playbackState != MediaPlayer.PlayingState) {
             thePlayer.play();
@@ -67,12 +74,15 @@ ApplicationWindow {
 
         Component {
             id: stackLive
-            PgLive { id: pgLive }
+            PgLive {
+                id: pgLive
+            }
         }
         Component {
             id: stackNews
             PgNews { id: pgNews }
         }
+
 
     }
 }

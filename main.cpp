@@ -3,6 +3,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "tangratray.h"
+#include <QSystemTrayIcon>
 
 int main(int argc, char *argv[])
 {

@@ -7,13 +7,29 @@ Image {
     y: 64
     property int animationDuration: 250
     fillMode: Image.PreserveAspectFit
-    source: isClicked ? "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-pause.png" : "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-play.png"
+    source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-play.png"
     property bool isClicked: false
+
+    function changeIconState() {
+        if ( thePlayer.playbackState === 1) {
+            buttonIcon.source = "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-pause.png"
+        }
+        else {
+            buttonIcon.source = "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-play.png"
+        }
+    }
 
     function runAnimation() {
         glow.visible = true
         animation1.start()
         animation2.start()
+    }
+
+    Connections {
+        target: mainStack
+        function activating() {
+            buttonIcon.changeIconState()
+        }
     }
 
     MouseArea {
