@@ -8,20 +8,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Widgets Core QuickControls2 Widgets Gui Multimedia)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Widgets Core QuickControls2 Widgets Gui Multimedia)
 
-set(QT_MIN_VERSION "5.10.0")
-set(KF5_DEP_VERSION "5.40.0")
-
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
-
-include_directories(.)
-include_directories(${Qt5Core_PRIVATE_INCLUDE_DIRS})
+qt_standard_project_setup(REQUIRES 6.5)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 list(APPEND QML_ASSETS
+    Assets/tangra.ico
     Assets/pause-button.svg
     Assets/logo.png
     Assets/play-button.svg
@@ -29,7 +24,6 @@ list(APPEND QML_ASSETS
     Assets/dark_leather.png
     Assets/menubtn-background.png
     Assets/blago.png
-    Assets/tangra.ico
     Assets/KellySlab-Regular.ttf
     Assets/news-icon.png
     Assets/buuf-pause.png
@@ -64,7 +58,7 @@ qt_add_qml_module(apptangraplay
 )
 
 set_target_properties(apptangraplay PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER tangraplay.petrovs.info
+    MACOSX_BUNDLE_GUI_IDENTIFIER tangraplay.blago.cloud
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE

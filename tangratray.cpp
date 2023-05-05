@@ -16,8 +16,8 @@ TangraTray::TangraTray(QObject *parent) : QObject(parent)
 
     trayIcon = new QSystemTrayIcon();
     trayIcon->setContextMenu(trayIconMenu);
-    setTrayIcon(":/bpetrov.tangraplay/imports/tangra.ico");
-
+    trayIcon->setToolTip(QString("TagraPlay"));
+    setTrayIcon(":/bpetrov.tangraplay/imports/TangraPlay/Assets/tangra.ico");
     trayIcon->show();
 
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
