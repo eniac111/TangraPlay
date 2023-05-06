@@ -25,7 +25,7 @@ env:
   PUBLISHER: "Blagovest Petrov"
   REPO_DIR: "/home/runner/work/TangraPlay"
   QT_VERSION: 6.5.0
-  QT_MODULES: qt5compat qtquick qtwidgets qtquickcontrols2 qtmultimedia
+  QT_MODULES: qt5compat qtmultimedia
   BUILD_TYPE: Release
 
 jobs:
