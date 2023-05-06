@@ -1,11 +1,12 @@
-import QtQuick 2.0
-import QtQuick.Dialogs 1.2
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Dialogs
 
 Dialog {
-    id: aboutDialog
-    standardButtons: StandardButton.Ok
+    id: aboutDialo
     height: 500
     width: 400
+    title: "About"
 
     Image {
         id: image
@@ -14,7 +15,7 @@ Dialog {
         width: 100
         height: 100
         fillMode: Image.PreserveAspectFit
-        source: "../Resources/blago.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/blago.png"
     }
 
     Text {
@@ -46,7 +47,7 @@ Dialog {
         y: 172
         width: 354
         height: 74
-        text: qsTr("© 2020 Благовест Петров ( https://petrovs.info ) . Кодът е лиценциран под GNU GPL v3.0. \n Шрифтът е \"Kelly Slab\" и е взет от Google Fonts. Лицензиран е под OFL лиценз.")
+        text: qsTr("© 2023 Благовест Петров ( https://petrovs.info ) . Кодът е лиценциран под GNU GPL v3.0. \n Шрифтът е \"Kelly Slab\" и е взет от Google Fonts. Лицензиран е под OFL лиценз.")
         font.family: mainfont.name
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         font.pixelSize: 12

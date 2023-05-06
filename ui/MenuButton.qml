@@ -10,7 +10,7 @@ Rectangle {
 
     Image {
         id: menuButtonBackground
-        source: "../Resources/menubtn-background.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/menubtn-background.png"
         anchors.fill: parent
     }
 

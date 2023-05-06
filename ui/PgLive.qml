@@ -5,6 +5,7 @@ import QtMultimedia 5.15
 
 Item {
 
+//    property alias playPauseChangeState: playPause.changeIconState()
 
     Image {
         id: logo
@@ -14,12 +15,35 @@ Item {
         width: 260
         height: 175
         fillMode: Image.PreserveAspectFit
-        source: "../Resources/logo.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/logo.png"
+
+        states: ["mouseFadeIn", "MouseFadeOut"]
+        state: "mouseFadeOut"
+
+        transitions: [
+            Transition {
+                from: "*"
+                to: "mouseFadeIn"
+                NumberAnimation {
+                    target: logo
+                    properties: "scale"
+                    from: 0.95
+                    to: 1
+                    duration: 400
+                    easing.type: Easing.OutBounce
+                }
+            }
+        ]
+
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onPressed:  {
+            hoverEnabled: true
+            onPressed: {
                 Qt.openUrlExternally("http://radiotangra.com")
+            }
+            onContainsMouseChanged: {
+                logo.state = containsMouse ? "mouseFadeIn" : "mouseFadeOut"
             }
         }
     }
@@ -30,13 +54,21 @@ Item {
         y: 291
         width: 64
         height: 64
+
+        Component.onCompleted: {
+            playPause.changeIconState()
+        }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                mediaControl();
-                playPause.isClicked = !playPause.isClicked;
+                playPause.runAnimation()
+                mediaControl()
+//                playPause.isClicked = !playPause.isClicked
+                playPause.changeIconState()
             }
         }
+
     }
 
     Text {
@@ -59,24 +91,14 @@ Item {
         y: 259
         width: 629
         height: 127
-        source: "../Resources/playbtn-frame.png"
+        source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/playbtn-frame.png"
         fillMode: Image.PreserveAspectFit
-
-        Text {
-            id: text1
-            x: 156
-            y: 17
-            text: qsTr("Предаване в ефир:")
-            color: "#f9c620"
-            font.family: mainfont.name
-            font.pixelSize: 15
-        }
 
         Text {
             id: text2
             x: 156
             y: 60
-            text: qsTr("В момента звучи:")
+            text: qsTr("Предаване в ефир: ") + currentShow.theShow
             color: "#f9c620"
             font.family: mainfont.name
             font.pixelSize: 15
@@ -89,3 +111,4 @@ Designer {
     D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/
+

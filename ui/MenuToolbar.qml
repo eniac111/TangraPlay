@@ -8,7 +8,7 @@ Item {
         height: 32
 
         Image {
-            source: "../Resources/menu-background.png"
+            source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/menu-background.png"
             fillMode: Image.Tile
             anchors.fill: parent
 
@@ -19,11 +19,11 @@ Item {
             anchors.fill: parent;
             property variant clickPos: "1,1"
 
-            onPressed: {
-                clickPos = Qt.point(mouse.x,mouse.y)
+            onPressed: (mouse)=> {
+                clickPos = Qt.point(mouse.x, mouse.y)
             }
 
-            onPositionChanged: {
+            onPositionChanged: (mouse)=> {
                 var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
                 var new_x = mainWindow.x + delta.x
                 var new_y = mainWindow.y + delta.y
@@ -63,24 +63,38 @@ Item {
                 color: "#f9c620"
             }
 
-//            Image {
-//                id: buttonLive
-//                source: "Resources/live.png"
-//                anchors.left: appTitle.left
-//                anchors.leftMargin: 128
-//                width: 32
-//                height: 32
+            Image {
+                id: buttonLive
+                source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/live.png"
+                anchors.left: appTitle.left
+                anchors.leftMargin: 128
+                width: 32
+                height: 32
 
-//                MouseArea {
-//                    anchors.fill: parent
-//                    hoverEnabled: true
-//                    onClicked: {
-//                        pgLive1.visible = false;
-//                        pgnews1.visible = true;
-////                        contentLoader.sourceComponent = PgNews
-//                    }
-//                }
-//            }
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        mainStack.push(stackLive)
+                    }
+                }
+            }
+            Image {
+                id: buttonNews
+                source: "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/news.png"
+                anchors.left: buttonLive.left
+                anchors.leftMargin: 128
+                width: 32
+                height: 32
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        mainStack.push(stackNews)
+                    }
+                }
+            }
         }
     }
 }
