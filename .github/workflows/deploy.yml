@@ -1,0 +1,88 @@
+#--------------------------------------------------------------------------------
+# Workflow configuration
+#--------------------------------------------------------------------------------
+
+name: Deploy
+on:
+  push:               # Run on push
+    paths-ignore:     # File patterns to ignore
+    - '**.md'         # Ignore changes to *.md files
+
+  pull_request:       # Run on pull-request
+    paths-ignore:     # File-patterns to ignore
+    - '**.md'         # Ignore changes to *.md files
+
+
+#--------------------------------------------------------------------------------
+# Define application name & version
+#--------------------------------------------------------------------------------
+
+env:
+  VERSION: "2.0.0"
+  EXECUTABLE: "TangraPlay"
+  APPLICATION: "TangraPlay"
+  UNIXNAME: "tangraplay"
+  PUBLISHER: "Blagovest Petrov"
+  REPO_DIR: "/home/runner/work/TangraPlay"
+  QT_VERSION: 6.5.0
+  QT_MODULES: qt5compat qtquick qtwidgets qtcore qtquickcontrols2 qtgui qtmultimedia
+  BUILD_TYPE: Release
+
+jobs:
+  #
+    # Linux AppImage
+  #
+  build-linux:
+    runs-on: ubuntu-20.04
+    name: "Ubuntu 20.04"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Qt Cache"
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
+
+      - name: "Install Dependencies"
+        run: |
+          sudo apt-get update
+          sudo apt-get install libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev libxcb-image0-dev libxcb-util0-dev libxcb-cursor-dev
+
+      - name: "Install Qt"
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{env.QT_VERSION}}
+          modules: ${{env.QT_MODULES}}
+          aqtversion: "==2.0.0"
+          cached: ${{steps.cache-qt.outputs.cache-hit}}
+
+      - name: "Install Linuxdeploy"
+        run: |
+          wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          chmod +x linuxdeploy-x86_64.AppImage
+          chmod +x linuxdeploy-plugin-qt-x86_64.AppImage
+
+      - name: "Configure CMake"
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+      - name: "Build"
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: "Create AppImage"
+        run: |
+          export QMAKE=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/bin/${{env.QMAKE}}
+          export PATH=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/libexec:$PATH
+          ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ${{env.UNIXNAME}} --plugin qt --output appimage
+          rm linuxdeploy-x86_64.AppImage
+          rm linuxdeploy-plugin-qt-x86_64.AppImage
+          mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+
+      - name: '📤 Upload artifact: AppImage'
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+          path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
