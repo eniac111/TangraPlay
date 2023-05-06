@@ -21,7 +21,7 @@ env:
   VERSION: "2.0.0"
   EXECUTABLE: "TangraPlay"
   APPLICATION: "TangraPlay"
-  UNIXNAME: "tangraplay"
+  UNIXNAME: "apptangraplay"
   PUBLISHER: "Blagovest Petrov"
   REPO_DIR: "/home/runner/work/TangraPlay"
   QT_VERSION: 6.5.0
