@@ -76,6 +76,8 @@ ApplicationWindow {
             id: stackLive
             PgLive {
                 id: pgLive
+
+
             }
         }
         Component {

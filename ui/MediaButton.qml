@@ -11,6 +11,7 @@ Image {
     property bool isClicked: false
 
     function changeIconState() {
+
         if ( thePlayer.playbackState === 1) {
             buttonIcon.source = "qrc:/bpetrov.tangraplay/imports/TangraPlay/Assets/buuf-pause.png"
         }

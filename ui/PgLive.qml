@@ -54,6 +54,11 @@ Item {
         y: 291
         width: 64
         height: 64
+
+        Component.onCompleted: {
+            playPause.changeIconState()
+        }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {

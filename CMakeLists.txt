@@ -15,6 +15,12 @@ qt_standard_project_setup(REQUIRES 6.5)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
+if (WIN32)
+    set(QT_DEFAULT_MEDIA_BACKEND windows)
+else()
+    set(QT_DEFAULT_MEDIA_BACKEND gstreamer)
+endif()
+
 list(APPEND QML_ASSETS
     Assets/tangra.ico
     Assets/pause-button.svg
