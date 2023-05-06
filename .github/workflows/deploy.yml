@@ -27,6 +27,7 @@ env:
   QT_VERSION: 6.5.0
   QT_MODULES: qt5compat qtmultimedia
   BUILD_TYPE: Release
+  QMAKE: qmake6
 
 jobs:
   #
