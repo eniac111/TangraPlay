@@ -2,7 +2,7 @@
 Name=TangraPlay
 GenericName=TangraPlay
 Comment=Плеър за Рок Радио Тангра
-Exec=TangraPlay
+Exec=apptangraplay
 Terminal=false
 Icon=tangraplay
 Type=Application

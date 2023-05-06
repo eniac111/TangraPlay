@@ -35,24 +35,24 @@ jobs:
   #
   build-linux:
     runs-on: ubuntu-22.04
-    name: "Ubuntu 22.04"
+    name: "🤘 Ubuntu 22.04 🤘"
     steps:
-      - name: "Checkout"
+      - name: "🤘 Checkout 🤘"
         uses: actions/checkout@v2
 
-      - name: "Qt Cache"
+      - name: "🤘 Qt Cache 🤘"
         id: cache-qt
         uses: actions/cache@v1
         with:
           path: ../Qt
           key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
 
-      - name: "Install Dependencies"
+      - name: "🤘 Install Dependencies 🤘"
         run: |
           sudo apt-get update
           sudo apt-get install libfuse2 appstream-compose libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev libxcb-image0-dev libxcb-util0-dev libxcb-cursor-dev
 
-      - name: "Install Qt"
+      - name: "🤘 Install Qt 🤘"
         uses: jurplel/install-qt-action@v2
         with:
           version: ${{env.QT_VERSION}}
@@ -60,7 +60,7 @@ jobs:
           aqtversion: "==2.0.0"
           cached: ${{steps.cache-qt.outputs.cache-hit}}
 
-      - name: "Install Linuxdeploy"
+      - name: "🤘 Install Linuxdeploy 🤘"
         run: |
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
@@ -68,13 +68,13 @@ jobs:
           # chmod +x linuxdeploy-plugin-qt-x86_64.AppImage
           chmod +x *.AppImage
 
-      - name: "Configure CMake"
+      - name: "🤘 Configure CMake 🤘"
         run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
       - name: "Build"
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-      - name: "Create AppImage"
+      - name: "🤘 Create AppImage 🤘"
         run: |
           export QMAKE=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/bin/${{env.QMAKE}}
           export PATH=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/libexec:$PATH
@@ -83,7 +83,7 @@ jobs:
           rm linuxdeploy-plugin-qt-x86_64.AppImage
           mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
 
-      - name: '📤 Upload artifact: AppImage'
+      - name: '🤘 Upload artifact: AppImage 🤘'
         uses: actions/upload-artifact@v2
         with:
           name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
