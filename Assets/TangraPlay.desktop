@@ -2,10 +2,13 @@
 Name=TangraPlay
 GenericName=TangraPlay
 Comment=Плеър за Рок Радио Тангра
-Exec=tangraplay
+Exec=apptangraplay
 Terminal=false
-Icon=org.petrovs_info.tangraplay
+Icon=tangraplay
 Type=Application
-X-KDE-PluginInfo-Website=http://tangraplay.petrovs.info
+X-KDE-PluginInfo-Website=http://tangraplay.blago.cloud
 Categories=AudioVideo;Player
 Keywords=Player;Radio;Tangra;Rock;Broadcast
+X-AppImage-Name=TangraPlay
+X-AppImage-Version=2.0.0
+X-AppImage-Arch=x86_64
