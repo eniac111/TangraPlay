@@ -27,8 +27,8 @@ env:
   QT_VERSION: 6.5.0
   QT_MODULES: qt5compat qtmultimedia
   BUILD_TYPE: Release
-  QML_SOURCES_PATHS: "/home/runner/work/TangraPlay/ui"
-  QML_MODULES_PATHS: "/home/runner/work/TangraPlay/ui"
+  QML_SOURCES_PATHS: "ui"
+  QML_MODULES_PATHS: "ui"
   QMAKE: qmake6
 
 jobs:
