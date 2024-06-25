@@ -5,6 +5,7 @@
 #include <QSystemTrayIcon>
 #include "tangratray.h"
 #include "currentshow.h"
+#include "windowhelper.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +14,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     CurrentShow currentShow;
+    WindowHelper windowHelper;
     engine.rootContext()->setContextProperty("currentShowC", &currentShow);
+    engine.rootContext()->setContextProperty("windowHelper", &windowHelper);
 
     engine.addImportPath(":/bpetrov.tangraplay/imports");
 
@@ -29,6 +32,5 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     engine.load(url);
-
     return app.exec();
 }
