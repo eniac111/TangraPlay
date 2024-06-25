@@ -2,14 +2,18 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "tangratray.h"
 #include <QSystemTrayIcon>
+#include "tangratray.h"
+#include "currentshow.h"
 
 int main(int argc, char *argv[])
 {
 
     QApplication app(argc, argv);
     QQmlApplicationEngine engine;
+
+    CurrentShow currentShow;
+    engine.rootContext()->setContextProperty("currentShowC", &currentShow);
 
     engine.addImportPath(":/bpetrov.tangraplay/imports");
 

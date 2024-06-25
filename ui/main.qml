@@ -43,7 +43,7 @@ ApplicationWindow {
     CurrentShow {
         id: currentShow
         Component.onCompleted: {
-            currentShow.getShow();
+            currentShowC.fetchData()
         }
     }
 
