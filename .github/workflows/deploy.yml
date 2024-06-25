@@ -18,14 +18,14 @@ on:
 #--------------------------------------------------------------------------------
 
 env:
-  VERSION: "2.0.0"
+  VERSION: "2.5.0"
   EXECUTABLE: "TangraPlay"
   APPLICATION: "TangraPlay"
   UNIXNAME: "apptangraplay"
   PUBLISHER: "Blagovest Petrov"
   REPO_DIR: "/home/runner/work/TangraPlay"
-  QT_VERSION: 6.5.0
-  QT_MODULES: qt5compat qtmultimedia
+  QT_VERSION: 6.7.0
+  QT_MODULES: qt5compat qtmultimedia qtnetwork qtgui qtquickcontrols2 qtcore qtwidgets qtquick
   BUILD_TYPE: Release
   QML_SOURCES_PATHS: "ui"
   QML_MODULES_PATHS: "ui"
@@ -52,7 +52,7 @@ jobs:
       - name: "🤘 Install Dependencies 🤘"
         run: |
           sudo apt-get update
-          sudo apt-get install libfuse2 appstream-compose libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev libxcb-image0-dev libxcb-util0-dev libxcb-cursor-dev
+          sudo apt-get install -y libfuse2 appstream-compose libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev libxcb-image0-dev libxcb-util0-dev libxcb-cursor-dev
 
       - name: "🤘 Install Qt 🤘"
         uses: jurplel/install-qt-action@v2
