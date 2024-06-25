@@ -8,7 +8,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Widgets Core QuickControls2 Widgets Gui Multimedia)
+find_package(Qt6 6.7 REQUIRED COMPONENTS Quick Widgets Core QuickControls2 Widgets Gui Multimedia Network)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -43,6 +43,7 @@ list(APPEND QML_ASSETS
 qt_add_executable(apptangraplay
     main.cpp
     tangratray.h tangratray.cpp
+    currentshow.h currentshow.cpp
 )
 
 qt_add_qml_module(apptangraplay
