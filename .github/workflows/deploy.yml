@@ -60,14 +60,13 @@ jobs:
           version: ${{env.QT_VERSION}}
           modules: ${{env.QT_MODULES}}
           # aqtversion: "==2.0.0"
-          cached: ${{steps.cache-qt.outputs.cache-hit}}
+          cache: true
+          install-deps: "true"
 
       - name: "🤘 Install Linuxdeploy 🤘"
         run: |
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
-          # chmod +x linuxdeploy-x86_64.AppImage
-          # chmod +x linuxdeploy-plugin-qt-x86_64.AppImage
           chmod +x *.AppImage
 
       - name: "🤘 Configure CMake 🤘"
@@ -86,7 +85,7 @@ jobs:
           mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
 
       - name: '🤘 Upload artifact: AppImage 🤘'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
           path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
