@@ -47,6 +47,13 @@ ApplicationWindow {
         }
     }
 
+    CurrentTrack {
+        id: currentTrack
+        Component.onCompleted: {
+            currentTrack.getTrack()
+        }
+    }
+
     function mediaControl() {
         if (thePlayer.playbackState != MediaPlayer.PlayingState) {
             thePlayer.play();
