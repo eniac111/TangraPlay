@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Window 2.12
+import QtQuick
+import QtQuick.Window
 
 Item {
     Rectangle {
@@ -17,26 +17,27 @@ Item {
 
         MouseArea {
             anchors.fill: parent;
-            property variant clickPos: "1,1"
+             property var clickPos: Qt.point(0, 0)
 
             onPressed: (mouse)=> {
                 clickPos = Qt.point(mouse.x, mouse.y)
+                windowHelper.startWindowMove(mainWindow, mouse.x, mouse.y);
             }
 
-            onPositionChanged: (mouse)=> {
-                var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
-                var new_x = mainWindow.x + delta.x
-                var new_y = mainWindow.y + delta.y
-                if (new_y <= 0)
-                    mainWindow.visibility = Window.Maximized
-                else
-                {
-                    if (mainWindow.visibility === Window.Maximized)
-                        mainWindow.visibility = Window.Windowed
-                    mainWindow.x = new_x
-                    mainWindow.y = new_y
-                }
-            }
+            // onPositionChanged: (mouse)=> {
+            //     var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
+            //     var new_x = mainWindow.x + delta.x
+            //     var new_y = mainWindow.y + delta.y
+            //     if (new_y <= 0)
+            //         mainWindow.visibility = Window.Maximized
+            //     else
+            //     {
+            //         if (mainWindow.visibility === Window.Maximized)
+            //             mainWindow.visibility = Window.Windowed
+            //         mainWindow.x = new_x
+            //         mainWindow.y = new_y
+            //     }
+            // }
 
             MenuButton {
                id: buttonExit

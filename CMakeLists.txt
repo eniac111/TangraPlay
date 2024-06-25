@@ -44,6 +44,7 @@ qt_add_executable(apptangraplay
     main.cpp
     tangratray.h tangratray.cpp
     currentshow.h currentshow.cpp
+    windowhelper.h windowhelper.cpp
 )
 
 qt_add_qml_module(apptangraplay
