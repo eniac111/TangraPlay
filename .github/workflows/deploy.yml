@@ -25,7 +25,7 @@ env:
   PUBLISHER: "Blagovest Petrov"
   REPO_DIR: "/home/runner/work/TangraPlay"
   QT_VERSION: 6.7.0
-  QT_MODULES: qt5compat qtmultimedia qtnetwork qtgui qtquickcontrols2 qtcore qtwidgets qtquick
+  QT_MODULES: "qtmultimedia "
   BUILD_TYPE: Release
   QML_SOURCES_PATHS: "ui"
   QML_MODULES_PATHS: "ui"
@@ -59,7 +59,7 @@ jobs:
         with:
           version: ${{env.QT_VERSION}}
           modules: ${{env.QT_MODULES}}
-          aqtversion: "==2.0.0"
+          # aqtversion: "==2.0.0"
           cached: ${{steps.cache-qt.outputs.cache-hit}}
 
       - name: "🤘 Install Linuxdeploy 🤘"
