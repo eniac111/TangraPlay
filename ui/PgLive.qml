@@ -103,6 +103,15 @@ Item {
             font.family: mainfont.name
             font.pixelSize: 15
         }
+        Text {
+            id: text3
+            x: 156
+            y: 80
+            text: qsTr("В момента звучи: ") + currentTrack.theTrack
+            color: "#f9c620"
+            font.family: mainfont.name
+            font.pixelSize: 15
+        }
     }
 }
 

@@ -62,6 +62,7 @@ qt_add_qml_module(apptangraplay
               ui/CurrentShow.qml
     RESOURCES
               ${QML_ASSETS}
+              QML_FILES ui/CurrentTrack.qml
 )
 
 set_target_properties(apptangraplay PROPERTIES
