@@ -25,7 +25,7 @@ env:
   PUBLISHER: "Blagovest Petrov"
   REPO_DIR: "/home/runner/work/TangraPlay"
   QT_VERSION: 6.7.0
-  QT_MODULES: "qtmultimedia "
+  QT_MODULES: "qtmultimedia qtnetwork"
   BUILD_TYPE: Release
   QML_SOURCES_PATHS: "ui"
   QML_MODULES_PATHS: "ui"
@@ -40,11 +40,11 @@ jobs:
     name: "🤘 Ubuntu 22.04 🤘"
     steps:
       - name: "🤘 Checkout 🤘"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: "🤘 Qt Cache 🤘"
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ../Qt
           key: ${{runner.os}}-qtcachedir-${{env.QT_VERSION}}
