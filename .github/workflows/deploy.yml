@@ -81,7 +81,8 @@ jobs:
           export PATH=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/libexec:$PATH
 
           mkdir -p AppDir/usr/lib/qt/plugins/mediaservice
-          cp -r ${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/plugins/mediaservice/* AppDir/usr/lib/qt/plugins/mediaservice/
+          # cp -r ${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/plugins/mediaservice/* AppDir/usr/lib/qt/plugins/mediaservice/
+          ls -la /home/runner/work/TangraPlay/Qt/6.7.0/gcc_64/plugins
 
           ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ./build/${{env.UNIXNAME}} -i Assets/tangraplay.png -d Assets/TangraPlay.desktop --plugin qt --output appimage
           rm linuxdeploy-x86_64.AppImage
