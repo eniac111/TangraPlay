@@ -43,7 +43,7 @@ jobs:
       - name: "🤘 Checkout 🤘"
         uses: actions/checkout@v4
         with:
-          fetch-depth:: 0
+          fetch-depth: 0
       
       - name: "Set APP_VERSION"
         id: get_version
@@ -66,7 +66,6 @@ jobs:
         with:
           version: ${{env.QT_VERSION}}
           modules: ${{env.QT_MODULES}}
-          # aqtversion: "==2.0.0"
           cache: true
           install-deps: "true"
 
@@ -95,7 +94,7 @@ jobs:
           ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ./build/${{env.UNIXNAME}} -i Assets/tangraplay.png -d Assets/TangraPlay.desktop --plugin qt --output appimage
           rm linuxdeploy-x86_64.AppImage
           rm linuxdeploy-plugin-qt-x86_64.AppImage
-          mv *.AppImage ${{env.EXECUTABLE}}-${{env.APP_VERSION}}-Linux.AppImage
+          mv *.AppImage ${{env.EXECUTABLE}}-${{env.APP_VERSION}}-Linux_gcc_x64.AppImage
 
       - name: '🤘 Upload artifact: AppImage 🤘'
         uses: actions/upload-artifact@v4
