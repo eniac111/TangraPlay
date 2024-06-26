@@ -26,6 +26,7 @@ env:
   REPO_DIR: "/home/runner/work/TangraPlay"
   QT_VERSION: 6.7.0
   QT_MODULES: "qtmultimedia qtmultimedia.debug_information"
+  LINUXDEPLOY_EXTRA_QT_PLUGINS: "multimedia;"
   BUILD_TYPE: Release
   QML_SOURCES_PATHS: "ui"
   QML_MODULES_PATHS: "ui"
@@ -76,12 +77,14 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: "🤘 Create AppImage 🤘"
+        env:
+          EXTRA_QT_PLIUGINS: "${{env.LINUXDEPLOY_EXTRA_QT_PLUGINS}}"
         run: |
           export QMAKE=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/bin/${{env.QMAKE}}
           export PATH=${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/libexec:$PATH
 
-          mkdir -p AppDir/usr/lib/qt/plugins/multimedia
-          cp -r ${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/plugins/multimedia/* AppDir/usr/lib/qt/plugins/multimedia/
+          # mkdir -p AppDir/usr/lib/qt/plugins/multimedia
+          # cp -r ${{env.REPO_DIR}}/Qt/${{env.QT_VERSION}}/gcc_64/plugins/multimedia/* AppDir/usr/lib/qt/plugins/multimedia/
 
           ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ./build/${{env.UNIXNAME}} -i Assets/tangraplay.png -d Assets/TangraPlay.desktop --plugin qt --output appimage
           rm linuxdeploy-x86_64.AppImage
