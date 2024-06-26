@@ -42,6 +42,12 @@ jobs:
     steps:
       - name: "🤘 Checkout 🤘"
         uses: actions/checkout@v4
+        with:
+          fetch-depth:: 0
+      
+      - name: "Set APP_VERSION"
+        id: get_version
+        run: echo "APP_VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: "🤘 Qt Cache 🤘"
         id: cache-qt
@@ -89,10 +95,10 @@ jobs:
           ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ./build/${{env.UNIXNAME}} -i Assets/tangraplay.png -d Assets/TangraPlay.desktop --plugin qt --output appimage
           rm linuxdeploy-x86_64.AppImage
           rm linuxdeploy-plugin-qt-x86_64.AppImage
-          mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+          mv *.AppImage ${{env.EXECUTABLE}}-${{env.APP_VERSION}}-Linux.AppImage
 
       - name: '🤘 Upload artifact: AppImage 🤘'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
-          path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+          name: ${{env.EXECUTABLE}}-${{env.APP_VERSION}}-Linux.AppImage
+          path: ${{env.EXECUTABLE}}-${{env.APP_VERSION}}-Linux.AppImage
