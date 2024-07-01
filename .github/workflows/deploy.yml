@@ -33,16 +33,13 @@ env:
   QMAKE: qmake6
 
 jobs:
-  #
-    # Linux AppImage
-  #
   build-linux:
     runs-on: ubuntu-24.04
     name: "🤘 Build for Linux 🤘"
     steps:
       - name: "🤘 Checkout 🤘"
         uses: actions/checkout@v4
-
+      
       - name: "🤘 Qt Cache 🤘"
         id: cache-qt
         uses: actions/cache@v4
@@ -60,7 +57,6 @@ jobs:
         with:
           version: ${{env.QT_VERSION}}
           modules: ${{env.QT_MODULES}}
-          # aqtversion: "==2.0.0"
           cache: true
           install-deps: "true"
 
@@ -89,10 +85,44 @@ jobs:
           ./linuxdeploy-x86_64.AppImage --appdir AppDir -e ./build/${{env.UNIXNAME}} -i Assets/tangraplay.png -d Assets/TangraPlay.desktop --plugin qt --output appimage
           rm linuxdeploy-x86_64.AppImage
           rm linuxdeploy-plugin-qt-x86_64.AppImage
-          mv *.AppImage ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+          mv *.AppImage ${{env.EXECUTABLE}}_Linux_gcc_x64.AppImage
 
       - name: '🤘 Upload artifact: AppImage 🤘'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
-          path: ${{env.EXECUTABLE}}-${{env.VERSION}}-Linux.AppImage
+          name: Linux_gcc_x64
+          path: ${{env.EXECUTABLE}}_Linux_gcc_x64.AppImage
+
+  release:
+    name: 'Create release and upload packages'
+    needs:
+      - build-linux
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: startsWith(github.ref, 'refs/tags/')
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: '📥 Download artifacts'
+        uses: 'actions/download-artifact@v4'
+        with:
+          name: Linux_gcc_x64
+
+      - name: "Create GitHub Release"
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          body: TangraPlay Release
+          draft: false
+          prerelease: false
+
+      - name: 'Upload AppImage'
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{env.EXECUTABLE}}_Linux_gcc_x64.AppImage
+          asset_name: ${{env.EXECUTABLE}}-${{ github.ref_name }}_Linux_gcc_x64.AppImage
+          asset_content_type: application/octet-stream
