@@ -125,4 +125,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./TangraPlay-${{ github.ref.name }}_Linux_gcc_x64.AppImage
           asset_name: TangraPlay-${{ github.ref.name }}_Linux_gcc_x64.AppImage
-          asset_content:type: application/octet-stream
+          asset_content_type: application/octet-stream
