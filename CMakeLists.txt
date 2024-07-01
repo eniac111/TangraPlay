@@ -85,3 +85,24 @@ target_link_libraries(apptangraplay PRIVATE
 install(TARGETS apptangraplay
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+
+# CPack configuration
+include(InstallRequiredSystemLibraries)
+set(CPACK_PACKAGE_NAME "TangraPlay")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_PACKAGE_VENDOR "Blagovest Petrov")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Tangra Mega Rock Player")
+set(CPACK_PACKAGE_CONTACT "Blagovest Petrov")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_README "${CMAKE_SOURCE_DIR}/README.md")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "TangraPlay")
+set(CPACK_NSIS_DISPLAY_NAME "TangraPlay")
+set(CPACK_NSIS_PACKAGE_NAME "TangraPlay")
+set(CPACK_NSIS_INSTALLED_ICON_NAME "TangraPlay.exe")
+set(CPACK_NSIS_HELP_LINK "https://tangraplay.blago.cloud")
+set(CPACK_NSIS_URL_INFO_ABOUT "https://tangraplay.blago.cloud")
+set(CPACK_NSIS_CONTACT "Blagovest Petrov")
+
+include(CPack)
+
