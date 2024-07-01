@@ -93,6 +93,46 @@ jobs:
           name: Linux_gcc_x64
           path: ${{env.EXECUTABLE}}_Linux_gcc_x64.AppImage
 
+  build-windows:
+    runs-on: windows-latest
+    name: "🤘 Build for Windows 🤘"
+    steps:
+      - name: "🤘 Checkout 🤘"
+        uses: actions/checkout@v4
+
+      - name: "🤘 Configure MSVC 🤘"
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+          spectre: true
+
+      - name: "🤘 Install Qt 🤘"
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: ${{env.QT_VERSION}}
+          host: windows
+          target: desktop
+          modules: ${{env.QT_MODULES}}
+          cache: true
+          install-deps: true
+
+      - name: "🤘 Configure CMake 🤘"
+        run: cmake -B ${{github.workspace}}/build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_PREFIX_PATH:PATH="C:\\Qt\\${{env.QT_VERSION}}\\msvc2019_64"
+
+      - name: "Build"
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: "🤘 Create Installer 🤘"
+        run: |
+          cd ${{github.workspace}}/build
+          cpack -G NSIS
+
+      - name: '🤘 Upload artifact: Installer 🤘'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows_Installer
+          path: ${{github.workspace}}/build/*.exe
+
   release:
     name: 'Create release and upload packages'
     needs:
