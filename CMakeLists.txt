@@ -106,3 +106,9 @@ set(CPACK_NSIS_CONTACT "Blagovest Petrov")
 
 include(CPack)
 
+if (WIN32)
+    add_custom_command(TARGET apptangraplay POST_BUILD
+        COMMAND ${Qt6_DIR}/../../bin/windeployqt.exe $<TARGET_FILE:apptangraplay>
+        COMMENT "Running windeployqt to include Qt libraries"
+    )
+endif()
