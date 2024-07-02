@@ -122,6 +122,10 @@ jobs:
       - name: "🤘 Build 🤘"
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+      - name: "🤘 Run windeployqt 🤘"
+        run: |
+          "C:\\Qt\\${{env.QT_VERSION}}\\msvc2019_64\\bin\\windeployqt.exe" ${{github.workspace}}\\build\\$<CONFIG>\\apptangraplay.exe --dir ${{github.workspace}}\\build\\deploy
+
       - name: "🤘 Create Installer 🤘"
         run: |
           cd ${{github.workspace}}/build

@@ -110,5 +110,8 @@ if (WIN32)
     add_custom_command(TARGET apptangraplay POST_BUILD
         COMMAND ${Qt6_DIR}/../../../bin/windeployqt.exe $<TARGET_FILE:apptangraplay>
         COMMENT "Running windeployqt to include Qt libraries"
+
+         # Create an install rule to include the windeployqt output
+        install(DIRECTORY ${CMAKE_BINARY_DIR}/$<CONFIG>/ DESTINATION .)
     )
 endif()
