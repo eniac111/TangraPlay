@@ -123,13 +123,12 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: "🤘 Run windeployqt 🤘"
-        run: |
-          "C:\\Qt\\${{env.QT_VERSION}}\\msvc2019_64\\bin\\windeployqt.exe" ${{github.workspace}}\\build\\$<CONFIG>\\apptangraplay.exe --dir ${{github.workspace}}\\build\\deploy
+        run: cmd.exe /c ""C:\\Qt\\${{env.QT_VERSION}}\\msvc2019_64\\bin\\windeployqt.exe" D:\\a\\TangraPlay\\TangraPlay\\build\\Release\\apptangraplay.exe --dir D:\\a\\TangraPlay\\TangraPlay\\build\\deploy"
 
       - name: "🤘 Create Installer 🤘"
         run: |
           cd ${{github.workspace}}/build
-          cpack -G NSIS
+          cpack -G NSIS --config CPackConfig.cmake
 
       - name: '🤘 Upload artifact: Installer 🤘'
         uses: actions/upload-artifact@v4
